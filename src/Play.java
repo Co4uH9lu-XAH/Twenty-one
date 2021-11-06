@@ -8,14 +8,17 @@ public class Play {
        // PrisonerSays.letsPlay();
 
         // Сдача карт.
-     for (Card deckCard: DeliveryOfCards.getThreeCards()){
-         System.out.println(deckCard);
-        }
-     ArrayList<Card> startDeck = new ArrayList<>(DeckCard.saveDeck());
-     ArrayList<Card> deckAfterDeal = DeckAfterDeal.getDeckAfterDeal(startDeck,RandomCard.getRandomCard(startDeck));
-     for(Card deckCard: deckAfterDeal){
-         System.out.println(deckCard);
-     }
+        ArrayList<Card> deck = new ArrayList<>();
+        deck = DeckCard.saveDeck();
+        int elementIndex = 35;
+        ArrayList<Card> dealDeck = new ArrayList<>();
+            for(int i =0; i<3; i++ ){
+                dealDeck.add(RandomCard.getRandomCard(deck, elementIndex-1));
+               // deck.remove(RandomCard.getRandomCard(deck, elementIndex-1));
+                elementIndex = elementIndex-1;
+            }
+        System.out.println(dealDeck.toString());
+        System.out.println(elementIndex);
     }
 
 }

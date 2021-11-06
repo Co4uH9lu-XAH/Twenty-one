@@ -5,13 +5,15 @@ import java.util.Random;
 
 public class RandomCard {
 
-    public static Card getRandomCard(ArrayList<Card> deck){
-        Random generator = new Random();
-        int r = generator.nextInt(deck.size());
-        deck.get(r);
-        deck.remove(r);
-        return deck.get(r);
+    public static Card getRandomCard(ArrayList<Card> deck, int randomInt){
+        deck.get(randomInt);
+        //deck.remove(randomInt);
+        return deck.get(randomInt);
     }
 
-
+    public int randomInt (int deckSize){
+        Random generator = new Random();
+        int randomInt = generator.nextInt(deckSize);
+        return randomInt;
+    }
 }
