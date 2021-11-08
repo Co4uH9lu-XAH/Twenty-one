@@ -1,7 +1,7 @@
 public class PrisonerSays {
     // Вывод по одной букве, просто потому что могу.
     public static void introductorySpeech() throws InterruptedException {
-        String speech = "Здорово! Как звать?";
+        String speech = "Арестант: Здорово! Как звать?";
         char[] charArray = speech.toCharArray();
         for (char chArray : charArray) {
             Thread.sleep(1);
@@ -11,15 +11,15 @@ public class PrisonerSays {
     }
 
     public static void letsPlay()  {
-        System.out.println("Играем в арестанскую народную, " + ConsoleEnter.saidString+ " - Двадцать одно. По простому - очко. Правила, думаю, знаешь.");
+        System.out.println("Арестант: Играем в арестанскую народную, " + ConsoleEnter.saidString+ " - Двадцать одно. По простому - очко. Правила, думаю, знаешь.");
         System.out.println("Я сдаю - ты считаешь. Потом поменяемся. И так, пока не надоест.");
     }
     public static void space () {
-        System.out.println("Давай, все же, назовешься подлинее.");
+        System.out.println("Арестант: Давай, все же, назовешься подлинее.");
 
     }
     public static void twiceSpace (){
-        System.out.println("Пробел, так пробел.");
+        System.out.println("Арестант: Пробел, так пробел.");
         System.exit(0);
     }
 
@@ -28,12 +28,14 @@ public class PrisonerSays {
     }
 
     public static void hitler() {
-        System.out.println("Aаааааа!!! Охрана, у меня в камере Гитлер! Выпустите меня отсюда!!!!!");
+        System.out.println("Арестант: Aаааааа!!! Охрана, у меня в камере Гитлер! Выпустите меня отсюда!!!!!");
         System.exit(0);
     }
     public static void each() {
-        System.out.println("Еще?");
+        System.out.println("Арестант: Еще?");
     }
+    public static void myChange() {
+        System.out.println("Арестант: Моя очередь.");
 
-
+    }
 }
