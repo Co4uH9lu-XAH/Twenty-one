@@ -31,5 +31,9 @@ public class PrisonerSays {
         System.out.println("Aаааааа!!! Охрана, у меня в камере Гитлер! Выпустите меня отсюда!!!!!");
         System.exit(0);
     }
+    public static void each() {
+        System.out.println("Еще?");
+    }
+
 
 }

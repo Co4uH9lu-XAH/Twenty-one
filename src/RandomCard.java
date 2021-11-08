@@ -10,8 +10,7 @@ public class RandomCard {
         //deck.remove(randomInt);
         return deck.get(randomInt);
     }
-
-    public int randomInt (int deckSize){
+    public static int randomInt(int deckSize){
         Random generator = new Random();
         int randomInt = generator.nextInt(deckSize);
         return randomInt;
