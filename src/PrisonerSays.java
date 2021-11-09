@@ -36,6 +36,9 @@ public class PrisonerSays {
     }
     public static void myChange() {
         System.out.println("Арестант: Моя очередь.");
+    }
+    public static void dontUnderstand() {
+        System.out.println("Не понял, сэр!");
 
     }
 }
