@@ -11,34 +11,20 @@ public class Play {
         // Сдача карт.
         Distribution firstPlayer = new Distribution();
         firstPlayer.dealTwoCards();
-
-        // Ифэлсы первой запрошенной карты
-        if (ConsoleEnter.saidString.equalsIgnoreCase("no")){
-            System.out.println("My deal");
+        PrisonerSays.each();
+        ConsoleEnter.fromConsString();
+        if (ConsoleEnter.saidString.equalsIgnoreCase("n")) {
+            System.out.println("Итог: очков у игрока " + firstPlayer.userScore);
+        } else if (firstPlayer.userScore == 21) {
+            System.out.println("Win");
         } else if (ConsoleEnter.saidString.equalsIgnoreCase("y")) {
-            firstPlayer.dealOneCard();
-            // ифэлсы второй запрошенной карты
-            if (ConsoleEnter.saidString.equalsIgnoreCase("no")){
-                System.out.println("My deal");
-            } else if (ConsoleEnter.saidString.equalsIgnoreCase("y")) {
-                firstPlayer.dealOneCard();
-                // ифэлсы третьей запрошенной карты
-                if (ConsoleEnter.saidString.equalsIgnoreCase("no")){
-                    System.out.println("My deal");
-                } else if (ConsoleEnter.saidString.equalsIgnoreCase("y")) {
-                    firstPlayer.dealOneCard();
-                } else{
-                    PrisonerSays.dontUnderstand();
-                } // конец третьих элсифов
-            } else {
-                PrisonerSays.dontUnderstand();
-            } // конец вторых илсэфов
-        } else {
-            PrisonerSays.dontUnderstand();
-        } // конец первых идсэфов
-        System.out.println("Итог: очков у игрока " + firstPlayer.userScore);
+
+                while (firstPlayer.userScore<21) { // посмотреть точно ли надо вайл, или обойтись пятью ифами или см ниже
+                    firstPlayer.dealOneCard();// тут прописать иф, чтобы не было предложений еще тянуть
+                    PrisonerSays.each();// Вместо этого вывести на экран ты проиграл и выйти из сумрака
+                    ConsoleEnter.fromConsString();
+                }
+            System.out.println("lose");
+            }
+        }
     }
-}
-
-
-
