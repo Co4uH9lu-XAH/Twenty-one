@@ -11,20 +11,35 @@ public class Play {
         // Сдача карт.
         Distribution firstPlayer = new Distribution();
         firstPlayer.dealTwoCards();
-        PrisonerSays.each();
-        ConsoleEnter.fromConsString();
-        if (ConsoleEnter.saidString.equalsIgnoreCase("n")) {
-            System.out.println("Итог: очков у игрока " + firstPlayer.userScore);
-        } else if (firstPlayer.userScore == 21) {
-            System.out.println("Win");
-        } else if (ConsoleEnter.saidString.equalsIgnoreCase("y")) {
+        if (firstPlayer.userScore == 21) {
+            System.out.println("You win");
+        } else if (firstPlayer.userScore == 22) {
+            System.out.println("2 aces. Win");
+        } else {
+            PrisonerSays.each();
+            ConsoleEnter.fromConsString();
+            if (ConsoleEnter.saidString.equalsIgnoreCase("n")) {
+                System.out.println("Итог: очков у игрока " + firstPlayer.userScore);
+            } else if (ConsoleEnter.saidString.equalsIgnoreCase("y")) {
 
-                while (firstPlayer.userScore<21) { // посмотреть точно ли надо вайл, или обойтись пятью ифами или см ниже
-                    firstPlayer.dealOneCard();// тут прописать иф, чтобы не было предложений еще тянуть
-                    PrisonerSays.each();// Вместо этого вывести на экран ты проиграл и выйти из сумрака
-                    ConsoleEnter.fromConsString();
+                while (true) {
+                    firstPlayer.dealOneCard();
+                    if (firstPlayer.userScore == 21) {
+                        System.out.println("Win");
+                        break;
+                    } else if (firstPlayer.userScore > 21) {
+                        System.out.println("Lose");
+                        break;
+                    } else if (firstPlayer.userScore < 21) {
+                        PrisonerSays.each();
+                        ConsoleEnter.fromConsString();
+                        if (ConsoleEnter.saidString.equalsIgnoreCase("n")) {
+                            System.out.println("My deal");
+                            break;
+                        }
+                    }
                 }
-            System.out.println("lose");
             }
         }
     }
+}
