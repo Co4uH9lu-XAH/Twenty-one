@@ -1,3 +1,5 @@
+// Говорильня. Методы с тем, что говорить.
+
 public class PrisonerSays {
     // Вывод по одной букве, просто потому что могу.
     public static void introductorySpeech() throws InterruptedException {

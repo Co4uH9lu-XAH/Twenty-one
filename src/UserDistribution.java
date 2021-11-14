@@ -4,7 +4,11 @@ public class UserDistribution {
     static Distribution secondPlayer = new Distribution();
 
     static public void getUserDistribution() throws InterruptedException {
-
+/* Раздача карт игроку с предложением тянуть еще, подсчетом очков и выходом из цикла
+в зависимости от взятых карт. Если перебор, то игрок проиграл и сдача заново.
+Сначала, как мы помним, сдается две карты, потом в зависимости от ответа игрока или по одной, или раздача
+прекращается.
+ */
 
         firstPlayer.dealTwoCards();
         if (firstPlayer.userScore == 21) {
@@ -21,10 +25,8 @@ public class UserDistribution {
                 while (true) {
                     firstPlayer.dealOneCard();
                     if (firstPlayer.userScore == 21) {
-                       // System.out.println("Арестант: Очко. Сдавай.");
                         break;
                     } else if (firstPlayer.userScore > 21) {
-                        //System.out.println("Арестант: Перебор. Моя очередь.");
                         break;
                     } else if (firstPlayer.userScore < 21) {
                         PrisonerSays.each();
@@ -38,7 +40,12 @@ public class UserDistribution {
             }
         }
     }
-
+/* Раздача арестанту и проверка результата. Если арестант набирает больше очков, чем игрок, выход из цикла.
+Если арестанту прилетает 2 туза, он выиграл. Если оба игрока набрали по 19, 20, 21, то арестант согласен на ничью.
+Если у игрока меньше 18 очков, то арестант пока тянет еще. В дальнейшем планирую сделать логику выбора
+тянуть ли еще, если набралс оглядкой
+на те карты, которые уже вышли из колоды.
+ */
     static public void getPrisonerDistribution() throws InterruptedException {
 
         secondPlayer.dealTwoCardsForPrisoner();
@@ -46,21 +53,23 @@ public class UserDistribution {
             System.out.println("????");
         } else if (secondPlayer.prisonerScore == 22) {
             System.out.println("Арестант: Два туза. Что там у тебя было? ");
+        } else if (secondPlayer.prisonerScore>firstPlayer.userScore){
         } else {
             while (true) {
                 secondPlayer.dealOneCardForPrisoner();
 
-                if (secondPlayer.prisonerScore == 21) {
-                    System.out.println("Арестант: Очко.");
+                if (secondPlayer.prisonerScore == 18) {
+                    break;
+                } else if (secondPlayer.prisonerScore == 19) {
+                    break;
+                } else if (secondPlayer.prisonerScore == 20) {
+                    break;
+                } else if (secondPlayer.prisonerScore == 21){
                     break;
                 } else if (secondPlayer.prisonerScore > 21) {
-                    System.out.println("Арестант: Перебор.");
                     break;
                 } else if (secondPlayer.prisonerScore > firstPlayer.userScore) {
-                    System.out.println("Арестант: Мне хватит. Считаем очки.");// НАписать еще цикл, чтобы арестант не брал карту, если у игрока перебор
                     break;
-                } else { // Написать вариант, если очков порону, но меньше 21.
-
                 }
             }
         }

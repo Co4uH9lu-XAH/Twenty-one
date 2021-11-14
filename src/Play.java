@@ -18,14 +18,20 @@ public class Play {
         UserDistribution.getUserDistribution();
         int finalUserScore = UserDistribution.firstPlayer.userScore;
         if (finalUserScore > 21) {
-            System.out.println("Арестант: Перебор. Моя очередь.");
+            System.out.println("Арестант: Перебор. Я выиграл.");
             prisonerPoints++;
         } else {
             System.out.println("Давай две");
             UserDistribution.getPrisonerDistribution();
             int finalPrisonerScore = UserDistribution.secondPlayer.prisonerScore;
-            if (finalPrisonerScore>21) {
-                System.out.println("Арестант: Я проиграл.");
+            if (finalUserScore>21) {
+                System.out.println("Арестант: Перебор. Ты проиграл.");
+                userPoints++;
+            } else  if (finalPrisonerScore==22){
+                System.out.println("Арестант: Редкая удача. Я выиграл.");
+                finalPrisonerScore++;
+            } else if (finalPrisonerScore>21){
+                System.out.println("Арестант: У меня перебор. Ты выиграл.");
                 userPoints++;
             } else if (finalPrisonerScore>finalUserScore){
                 System.out.println("Арестант: Я выиграл");

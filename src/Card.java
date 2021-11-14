@@ -1,3 +1,5 @@
+// Конструктор объекта типа карта. Ни добавить, ни убавить.
+
 public class Card {
     String card;
     String suit;

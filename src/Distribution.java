@@ -9,7 +9,9 @@ public class Distribution {
     ArrayList<Card> dealDeck = new ArrayList<>();
 
     public  void dealTwoCards() throws InterruptedException {
-
+/* В методе сдается две карты и они же удаляются из раздаточной колоды и считаются очки
+Очки беруться из поля card nominal
+ */
         for (int i = 0; i < 2; i++) {
             dealDeck.add(RandomCard.getRandomCard(deck, RandomCard.randomInt(deckSize)));
             deck.remove(RandomCard.getRandomCard(deck, RandomCard.randomInt(deckSize)));
@@ -23,6 +25,9 @@ public class Distribution {
 
     }
     public void dealOneCard () {
+/* Тут тоже самое, что и в методе выше, только сдается одна карта. Колоды используются единые на все
+четыре метода в классе
+ */
         dealDeck.add(RandomCard.getRandomCard(deck, RandomCard.randomInt(deckSize)));
         deck.remove(RandomCard.getRandomCard(deck, RandomCard.randomInt(deckSize)));
         deckSize = deckSize - 1;
@@ -33,6 +38,9 @@ public class Distribution {
         System.out.println(userScore + " очков.");
 
     }
+/* Методы, аналогичные методам выше, но для раздачи карт арестанту
+В раздаточной колоде нет ранее сданных игроку карт
+ */
     public  void dealTwoCardsForPrisoner() throws InterruptedException {
 
         for (int i = 0; i < 2; i++) {
