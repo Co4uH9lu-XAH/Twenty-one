@@ -33,9 +33,12 @@ public class Play {
             } else if (finalPrisonerScore>21){
                 System.out.println("Арестант: У меня перебор. Ты выиграл.");
                 userPoints++;
-            } else if (finalPrisonerScore>finalUserScore){
+            } else if (finalPrisonerScore>finalUserScore) {
                 System.out.println("Арестант: Я выиграл");
                 finalPrisonerScore++;
+            } else if (finalPrisonerScore<finalUserScore){
+                System.out.println("Арестант: У меня меньше. Я проиграл.");
+                userPoints++;
             } else if (finalPrisonerScore==finalUserScore){
                 System.out.println("Арестант: Поровну. Ничья.");
             }
