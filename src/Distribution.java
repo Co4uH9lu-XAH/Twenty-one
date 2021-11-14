@@ -55,7 +55,7 @@ public class Distribution {
         dealDeckIndex = dealDeckIndex + 1;
 
         System.out.println("Колода арестанта: " + "\n" + dealDeck.toString());
-        System.out.println(prisonerScore + " очков.");
+        System.out.println("У арестанта: " + prisonerScore + " очков.");
 
     }
 }

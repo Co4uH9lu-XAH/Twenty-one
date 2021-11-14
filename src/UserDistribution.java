@@ -8,9 +8,9 @@ public class UserDistribution {
 
         firstPlayer.dealTwoCards();
         if (firstPlayer.userScore == 21) {
-            System.out.println("Очко. Моя очередь.");
+            System.out.println("Арестант: Очко. Моя очередь.");
         } else if (firstPlayer.userScore == 22) {
-            System.out.println("2 туза. Сдавай.");
+            System.out.println("Арестант: 2 туза. Сдавай.");
         } else {
             PrisonerSays.each();
             ConsoleEnter.fromConsString();
@@ -21,10 +21,10 @@ public class UserDistribution {
                 while (true) {
                     firstPlayer.dealOneCard();
                     if (firstPlayer.userScore == 21) {
-                        System.out.println("Арестант: Очко. Сдавай.");
+                       // System.out.println("Арестант: Очко. Сдавай.");
                         break;
                     } else if (firstPlayer.userScore > 21) {
-                        System.out.println("Арестант: Перебор. Моя очередь.");
+                        //System.out.println("Арестант: Перебор. Моя очередь.");
                         break;
                     } else if (firstPlayer.userScore < 21) {
                         PrisonerSays.each();
@@ -57,11 +57,10 @@ public class UserDistribution {
                     System.out.println("Арестант: Перебор.");
                     break;
                 } else if (secondPlayer.prisonerScore > firstPlayer.userScore) {
-                    System.out.println("Арестант: Мне хватит. Считаем очки.");
+                    System.out.println("Арестант: Мне хватит. Считаем очки.");// НАписать еще цикл, чтобы арестант не брал карту, если у игрока перебор
                     break;
-                } else {
+                } else { // Написать вариант, если очков порону, но меньше 21.
 
-                    Thread.sleep(1000);
                 }
             }
         }
