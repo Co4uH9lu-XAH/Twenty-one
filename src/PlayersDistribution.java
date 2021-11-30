@@ -1,4 +1,4 @@
-public class UserDistribution {
+public class PlayersDistribution {
 
     static Distribution firstPlayer = new Distribution();
     static Distribution secondPlayer = new Distribution();
@@ -36,6 +36,7 @@ public class UserDistribution {
                             break;
                         }
                     }
+                    System.out.println("Арестант: Еще одну.");
                 }
             }
         }
@@ -50,10 +51,11 @@ public class UserDistribution {
 
         secondPlayer.dealTwoCardsForPrisoner();
         if (secondPlayer.prisonerScore == 21) {
-            System.out.println("????");
+            System.out.println("Арестант: Экая удача. Бывает и такое.");
         } else if (secondPlayer.prisonerScore == 22) {
-            System.out.println("Арестант: Два туза. Что там у тебя было? ");
+            System.out.println("Арестант: Ну тут я выиграл.");
         } else if (secondPlayer.prisonerScore>firstPlayer.userScore){
+            System.out.println("Арестант: пожалуй, хватит.");
         } else {
             while (true) {
                 secondPlayer.dealOneCardForPrisoner();
@@ -73,6 +75,64 @@ public class UserDistribution {
                 }
             }
         }
+        System.out.println("Тест надпись: "+ firstPlayer.dealDeck.toString());
+        firstPlayer.dealDeck.clear();
+        firstPlayer.setDealDeckIndex(0);
+        System.out.println("Тест надпись: "+ firstPlayer.dealDeck.toString());
+    }
+
+    static public void getPrisonerDistributionWhenPrisonerFirst() throws InterruptedException {
+
+        secondPlayer.dealTwoCardsForPrisoner();
+        if (secondPlayer.prisonerScore == 21) {
+            System.out.println("Арестант: Вот свезло так свезло");
+        } else if (secondPlayer.prisonerScore == 22) {
+            System.out.println("Арестант: Два туза. Поперла карта.");
+            Rounds.prisonerPoints++;
+        } else if (secondPlayer.prisonerScore > 18) {
+            System.out.println("Арестант: Пожалуй, хватит.");
+        } else {
+            while (true) {
+                System.out.println("Арестант: Еще возьму.");
+                secondPlayer.dealOneCardForPrisoner();
+                if (secondPlayer.prisonerScore > 18) {
+                    break;
+                }
+            }
+        }
+    }
+    static public void getUserDistributionWhenUserSecond() throws InterruptedException {
+        firstPlayer.dealTwoCards();
+        if (firstPlayer.userScore == 21) {
+            System.out.println("Арестант: Очко.");
+        } else if (firstPlayer.userScore == 22) {
+            System.out.println("Арестант: 2 туза. Редкая удача.");
+        } else {
+            PrisonerSays.each();
+            ConsoleEnter.fromConsString();
+            if (ConsoleEnter.saidString.equalsIgnoreCase("n")) {
+                System.out.println("Итог: очков у игрока " + firstPlayer.userScore);
+            } else if (ConsoleEnter.saidString.equalsIgnoreCase("y")) {
+
+                while (true) {
+                    firstPlayer.dealOneCard();
+                    if (firstPlayer.userScore == 21) {
+                        break;
+                    } else if (firstPlayer.userScore > 21) {
+                        break;
+                    } else if (firstPlayer.userScore < 21) {
+                        PrisonerSays.each();
+                        ConsoleEnter.fromConsString();
+                        if (ConsoleEnter.saidString.equalsIgnoreCase("n")) {
+                            // System.out.println("Арестант: Моя очередь");
+                            break;
+                        }
+                    }
+                    System.out.println("Арестант: Еще одну.");
+                }
+            }
+        }
+
     }
 }
 

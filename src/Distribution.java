@@ -1,11 +1,20 @@
 import java.util.ArrayList;
 
 public class Distribution {
-    int deckSize = 36;
+    static int deckSize = 36;
     int userScore = 0;
     int dealDeckIndex = 0;
+
+    public int getDealDeckIndex() {
+        return dealDeckIndex;
+    }
+
+    public void setDealDeckIndex(int dealDeckIndex) {
+        this.dealDeckIndex = dealDeckIndex;
+    }
+
     int prisonerScore=0;
-    ArrayList<Card> deck = new ArrayList<>(DeckCard.saveDeck());
+    static ArrayList<Card> deck = new ArrayList<>(DeckCard.saveDeck());
     ArrayList<Card> dealDeck = new ArrayList<>();
 
     public  void dealTwoCards() throws InterruptedException {

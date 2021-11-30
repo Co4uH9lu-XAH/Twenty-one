@@ -6,7 +6,7 @@ import java.util.Random;
 
 
 public class RandomCard {
-                                                // Здесь метод возвращает случайную карту.
+                                 // Здесь метод возвращает случайную карту.
     public static Card getRandomCard(ArrayList<Card> deck, int randomInt){
         deck.get(randomInt);
         return deck.get(randomInt);
