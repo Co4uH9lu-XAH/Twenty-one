@@ -10,14 +10,17 @@ public class Play {
         //PrisonerSays.letsPlay();
 
         // Сдача карт.
-        Rounds.doFirstRound();
+        Rounds distributionFirst = new Rounds();
+        Rounds distributionSecond = new Rounds();
+        distributionFirst.doFirstRound();
 
         System.out.println("Давай исчо!");
-        Rounds.doFirstRound();
+        System.out.println();
+       // distributionSecond.doFirstRound();
 
         System.out.println("---------------------------------------------------");
 
-        //Rounds.doSecondRound();
+        distributionSecond.doSecondRound();
 
         
 
