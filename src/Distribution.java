@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class Distribution {
     static int deckSize = 36;
-    int userScore = 0;
+    int userScore =0;
     int prisonerScore=0;
     int dealUserDeckIndex = 0;
     int dealPrisonerDeckIndex = 0;

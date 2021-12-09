@@ -9,12 +9,12 @@ public class Rounds {
 
     public  void doFirstRound() throws InterruptedException {
         PlayersDistribution dealFirstRound = new PlayersDistribution();
-        int userScoreFoFirstRound = dealFirstRound.firstRound.userScore;
-        int prisonerScoreFoFirstRound = dealFirstRound.firstRound.prisonerScore;
+        //int userScoreFoFirstRound = dealFirstRound.firstRound.userScore;
+        //int prisonerScoreFoFirstRound = dealFirstRound.firstRound.prisonerScore;
 
         dealFirstRound.getUserDistribution();
 
-        if (userScoreFoFirstRound > 21) {
+        if (dealFirstRound.firstRound.userScore > 21) {
             System.out.println("Арестант: Перебор. Я выиграл.");
             prisonerPoints++;
         } else {
@@ -22,19 +22,19 @@ public class Rounds {
 
             dealFirstRound.getPrisonerDistribution();
 
-            if (userScoreFoFirstRound > 21) {
+            if (dealFirstRound.firstRound.userScore > 21) {
                 System.out.println("Арестант: Перебор. Ты проиграл.");
                 userPoints++;
-            } else if (prisonerScoreFoFirstRound > 21) {
+            } else if (dealFirstRound.firstRound.prisonerScore > 21) {
                 System.out.println("Арестант: У меня перебор. Ты выиграл.");
                 userPoints++;
-            } else if (prisonerScoreFoFirstRound > userScoreFoFirstRound) {
+            } else if (dealFirstRound.firstRound.prisonerScore > dealFirstRound.firstRound.userScore) {
                 System.out.println("Арестант: Я выиграл");
                 prisonerPoints++;
-            } else if (prisonerScoreFoFirstRound < userScoreFoFirstRound) {
+            } else if (dealFirstRound.firstRound.prisonerScore < dealFirstRound.firstRound.userScore) {
                 System.out.println("Арестант: У меня меньше. Я проиграл.");
                 userPoints++;
-            } else if (prisonerScoreFoFirstRound == userScoreFoFirstRound) {
+            } else if (dealFirstRound.firstRound.prisonerScore == dealFirstRound.firstRound.userScore) {
                 System.out.println("Арестант: Поровну. Ничья.");
             }
         }
