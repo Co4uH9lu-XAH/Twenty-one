@@ -42,26 +42,26 @@ public class Rounds {
 
     public void doSecondRound() throws InterruptedException {
         PlayersDistribution dealSecondRound = new PlayersDistribution();
-        int userScoreForSecondRound = dealSecondRound.secondRound.prisonerScore;
-        int prisonerScoreForSecondRound = dealSecondRound.secondRound.prisonerScore;
+        //int userScoreForSecondRound = dealSecondRound.secondRound.userScore;
+        //int prisonerScoreForSecondRound = dealSecondRound.secondRound.prisonerScore;
 
         dealSecondRound.getPrisonerDistributionWhenPrisonerFirst();
-        if (prisonerScoreForSecondRound > 21) {
+        if (dealSecondRound.secondRound.prisonerScore > 21) {
             System.out.println("Арестант: Перебор. Этот раунд за тобой.");
             userPoints++;
         } else {
             System.out.println("Арестант: Мне хватит. Твоя очередь.");
             dealSecondRound.getUserDistributionWhenUserSecond();
-            if (userScoreForSecondRound == prisonerScoreForSecondRound) {
-                System.out.println("Арестант: Ничья.");
-            } else if (userScoreForSecondRound>21){
-                System.out.println("Арестант: У тебя перебор. Я выиграл. ");
+            if (dealSecondRound.secondRound.userScore > 21) {
+                System.out.println("Арестант: Переборище у тебя. Я выиграл.");
                 prisonerPoints++;
-            } else if (userScoreForSecondRound < prisonerScoreForSecondRound) {
-                System.out.println("Арестант: У тебя меньше. Я выиграл.");
-                prisonerPoints++;
-            } else if (userScoreForSecondRound > prisonerScoreForSecondRound) {
-                System.out.println("Арестант: У тебя больше. Ты выиграл.");
+            } else if (dealSecondRound.secondRound.prisonerScore > dealSecondRound.secondRound.userScore) {
+                System.out.println("Арестант: Я одолел.");
+            } else if(dealSecondRound.secondRound.prisonerScore < dealSecondRound.secondRound.userScore){
+                System.out.println("Арестант: Хм... Не везет в игре мне, повезет в любви.");
+                userPoints++;
+            } else if (dealSecondRound.secondRound.prisonerScore == dealSecondRound.secondRound.userScore) {
+                System.out.println("Арестант: ничья.");
                 userPoints++;
             }
         }
