@@ -5,9 +5,9 @@ public class Play {
     public static void main(String[] args) throws InterruptedException {
 
         //Вступительные титры
-        // PrisonerSays.introductorySpeech();
-        //ConsoleEnter.fromConsString();
-        //PrisonerSays.letsPlay();
+         PrisonerSays.introductorySpeech();
+        ConsoleEnter.fromConsString();
+        PrisonerSays.letsPlay();
 
         // Сдача карт.
         Rounds distributionFirst = new Rounds();
@@ -16,7 +16,6 @@ public class Play {
 
         System.out.println("Давай исчо!");
         System.out.println();
-       // distributionSecond.doFirstRound();
 
         System.out.println("---------------------------------------------------");
 
