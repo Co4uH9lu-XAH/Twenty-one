@@ -36,7 +36,6 @@ public class PlayersDistribution {
                             break;
                         }
                     }
-                    System.out.println("Арестант: Еще одну.");
                 }
             }
         }
@@ -95,10 +94,12 @@ public class PlayersDistribution {
             System.out.println("Арестант: Пожалуй, хватит.");
         } else {
             while (true) {
-                System.out.println("Арестант: Еще возьму.");
-                secondRound.dealOneCardForPrisoner();
+
                 if (secondRound.prisonerScore > 18) {
                     break;
+                }else if (secondRound.prisonerScore < 18){
+                    System.out.println("Арестант: Еще возьму.");
+                    secondRound.dealOneCardForPrisoner();
                 }
             }
         }
@@ -130,7 +131,6 @@ public class PlayersDistribution {
                             break;
                         }
                     }
-                    System.out.println("Арестант: Еще одну.");
                 }
             }
         }

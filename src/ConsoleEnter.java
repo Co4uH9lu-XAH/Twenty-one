@@ -10,7 +10,7 @@ public class ConsoleEnter {
         Scanner scan = new Scanner(System.in);
         saidString = scan.nextLine();
         while (saidString.equals("")) {
-            PrisonerSays.noEnter();
+            PrisonerSays.dontUnderstand();
             saidString = scan.nextLine();
         }
         if (saidString.equalsIgnoreCase("гитлер")) {

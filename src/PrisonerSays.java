@@ -6,7 +6,7 @@ public class PrisonerSays {
         String speech = "Арестант: Здорово! Как звать?";
         char[] charArray = speech.toCharArray();
         for (char chArray : charArray) {
-            Thread.sleep(200);
+            Thread.sleep(1);
             System.out.print(chArray);
         }
         System.out.println("");
@@ -22,7 +22,7 @@ public class PrisonerSays {
     }
     public static void twiceSpace (){
         System.out.println("Арестант: Пробел, так пробел.");
-        System.exit(200);
+        System.exit(1);
     }
 
     public static void noEnter() {
@@ -31,7 +31,7 @@ public class PrisonerSays {
 
     public static void hitler() {
         System.out.println("Арестант: Aаааааа!!! Охрана, у меня в камере Гитлер! Выпустите меня отсюда!!!!!");
-        System.exit(200);
+        System.exit(1);
     }
     public static void each() {
         System.out.println("Арестант: Еще?");
@@ -40,7 +40,13 @@ public class PrisonerSays {
         System.out.println("Арестант: Моя очередь.");
     }
     public static void dontUnderstand() {
-        System.out.println("Не понял, сэр!");
+        System.out.println("Не понял, сэр?!");
+    }
+    public static void youChange() {
+        System.out.println("Арестант: Теперь, значицца, ты.");
+    }
 
+    public static void playAgain() {
+        System.out.println("Арестант: Играем дальше?");
     }
 }
