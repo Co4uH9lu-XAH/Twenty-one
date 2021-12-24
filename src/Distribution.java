@@ -23,8 +23,8 @@ public class Distribution {
             dealUserDeckIndex = dealUserDeckIndex + 1;
             Thread.sleep(1000);
         }
-        System.out.println("Моя колода: " + "\n" + dealUserDeck.toString());
-        System.out.println(userScore + " очков.");
+        System.out.println("Колода "+ ConsoleEnter.saidName+"a: " + "\n" + dealUserDeck.toString());
+        System.out.println("У "+ ConsoleEnter.saidName+"a " + userScore + " очков.");
 
     }
     public void dealOneCard () {
@@ -37,8 +37,8 @@ public class Distribution {
         userScore = userScore + dealUserDeck.get(dealUserDeckIndex).nominal;
         dealUserDeckIndex = dealUserDeckIndex + 1;
 
-        System.out.println("Моя колода: " + "\n" + dealUserDeck.toString());
-        System.out.println(userScore + " очков.");
+        System.out.println("Колода "+ ConsoleEnter.saidName+"a: " + "\n" + dealUserDeck.toString());
+        System.out.println("У "+ ConsoleEnter.saidName+"a " + userScore + " очков.");
 
     }
 /* Методы, аналогичные методам выше, но для раздачи карт арестанту

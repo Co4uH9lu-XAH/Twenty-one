@@ -82,7 +82,7 @@ public class Rounds {
                 System.out.println();
                 prisonerPoints++;
             } else if (dealSecondRound.secondRound.prisonerScore > dealSecondRound.secondRound.userScore) {
-                System.out.println("Арестант: Я одолел.");
+                System.out.println("Арестант: У меня больше. Я одолел.");
             } else if(dealSecondRound.secondRound.prisonerScore < dealSecondRound.secondRound.userScore){
                 System.out.println("Арестант: Хм... Не везет в игре мне, повезет в любви. Ты выиграл.");
                 System.out.println();

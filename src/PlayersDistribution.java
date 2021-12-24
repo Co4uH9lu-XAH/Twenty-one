@@ -12,15 +12,18 @@ public class PlayersDistribution {
 
         firstRound.dealTwoCards();
         if (firstRound.userScore == 21) {
-            System.out.println("Арестант: Очко. Моя очередь.");
+            System.out.println("Арестант: Очко.");
+            PrisonerSays.prisonerChange();
         } else if (firstRound.userScore == 22) {
-            System.out.println("Арестант: 2 туза. Сдавай.");
+            System.out.println("Арестант: 2 туза. Теперь мне карты.");
         } else {
             PrisonerSays.each();
-            ConsoleEnter.fromConsString();
-            if (ConsoleEnter.saidString.equalsIgnoreCase("n")) {
-                System.out.println("Итог: очков у игрока " + firstRound.userScore);
-            } else if (ConsoleEnter.saidString.equalsIgnoreCase("y")) {
+            ConsoleEnter.fromConsStringAnsw();
+            if (ConsoleEnter.saidAnsw.equalsIgnoreCase("n") ||
+                ConsoleEnter.saidAnsw.equalsIgnoreCase("т")) {
+                System.out.println("У "+ ConsoleEnter.saidName+": " + firstRound.userScore+" очков.");
+            } else if (ConsoleEnter.saidAnsw.equalsIgnoreCase("y")||
+                    ConsoleEnter.saidAnsw.equalsIgnoreCase("н")) {
 
                 while (true) {
                     firstRound.dealOneCard();
@@ -30,9 +33,10 @@ public class PlayersDistribution {
                         break;
                     } else if (firstRound.userScore < 21) {
                         PrisonerSays.each();
-                        ConsoleEnter.fromConsString();
-                        if (ConsoleEnter.saidString.equalsIgnoreCase("n")) {
-                            System.out.println("Арестант: Моя очередь");
+                        ConsoleEnter.fromConsStringAnsw();
+                        if (ConsoleEnter.saidAnsw.equalsIgnoreCase("n") ||
+                                ConsoleEnter.saidAnsw.equalsIgnoreCase("т")) {
+                            PrisonerSays.prisonerChange();
                             break;
                         }
                     }
@@ -51,6 +55,7 @@ public class PlayersDistribution {
         firstRound.dealTwoCardsForPrisoner();
         if (firstRound.prisonerScore == 21) {
             System.out.println("Арестант: Экая удача. Бывает и такое.");
+            PrisonerSays.playerChange();
         } else if (firstRound.prisonerScore == 22) {
             System.out.println("Арестант: Ну тут я выиграл.");
         } else if (firstRound.prisonerScore>firstRound.userScore){
@@ -94,10 +99,9 @@ public class PlayersDistribution {
             System.out.println("Арестант: Пожалуй, хватит.");
         } else {
             while (true) {
-
                 if (secondRound.prisonerScore > 18) {
                     break;
-                }else if (secondRound.prisonerScore < 18){
+                }else if (secondRound.prisonerScore <= 18){
                     System.out.println("Арестант: Еще возьму.");
                     secondRound.dealOneCardForPrisoner();
                 }
@@ -112,10 +116,12 @@ public class PlayersDistribution {
             System.out.println("Арестант: 2 туза. Редкая удача.");
         } else {
             PrisonerSays.each();
-            ConsoleEnter.fromConsString();
-            if (ConsoleEnter.saidString.equalsIgnoreCase("n")) {
-                System.out.println("Итог: очков у игрока " + secondRound.userScore);
-            } else if (ConsoleEnter.saidString.equalsIgnoreCase("y")) {
+            ConsoleEnter.fromConsStringAnsw();
+            if (ConsoleEnter.saidAnsw.equalsIgnoreCase("n") ||
+                    ConsoleEnter.saidAnsw.equalsIgnoreCase("т")) {
+                System.out.println("У "+ ConsoleEnter.saidName+": " + secondRound.userScore+" очков.");
+            } else if (ConsoleEnter.saidAnsw.equalsIgnoreCase("y")||
+                    ConsoleEnter.saidAnsw.equalsIgnoreCase("н")) {
 
                 while (true) {
                     secondRound.dealOneCard();
@@ -125,8 +131,9 @@ public class PlayersDistribution {
                         break;
                     } else if (secondRound.userScore < 21) {
                         PrisonerSays.each();
-                        ConsoleEnter.fromConsString();
-                        if (ConsoleEnter.saidString.equalsIgnoreCase("n")) {
+                        ConsoleEnter.fromConsStringName();
+                        if (ConsoleEnter.saidAnsw.equalsIgnoreCase("n") ||
+                                ConsoleEnter.saidAnsw.equalsIgnoreCase("т")) {
                             // System.out.println("Арестант: Моя очередь");
                             break;
                         }

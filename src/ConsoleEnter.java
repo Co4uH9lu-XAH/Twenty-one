@@ -2,24 +2,46 @@
 import java.util.Scanner;
 
 public class ConsoleEnter {
-    static String saidString;
+    static String saidName;
+    static String saidAnsw;
     //static int saidInt;
 
     // Тут методы ввода с клавиатуры, проверялки, чтобы правильно вводили и бугогашечка
-    public static void fromConsString() {
+    public static void fromConsStringAnsw() {
         Scanner scan = new Scanner(System.in);
-        saidString = scan.nextLine();
-        while (saidString.equals("")) {
+        saidAnsw = scan.nextLine();
+
+        while (saidAnsw.equals("")) {
             PrisonerSays.dontUnderstand();
-            saidString = scan.nextLine();
+            saidAnsw = scan.nextLine();
         }
-        if (saidString.equalsIgnoreCase("гитлер")) {
+        if (saidAnsw.equalsIgnoreCase("гитлер")) {
             PrisonerSays.hitler();
 
-        } else if (saidString.trim().equals("")) {
+        } else if (saidAnsw.trim().equals("")) {
             PrisonerSays.space();
-            saidString = scan.nextLine();
-            if (saidString.trim().equals("")) {
+            saidAnsw = scan.nextLine();
+            if (saidAnsw.trim().equals("")) {
+                PrisonerSays.twiceSpace();
+            }
+        }
+    }
+
+    public static void fromConsStringName() {
+        Scanner scan = new Scanner(System.in);
+        saidName = scan.nextLine();
+
+        while (saidName.equals("")) {
+            PrisonerSays.dontUnderstand();
+            saidName = scan.nextLine();
+        }
+        if (saidName.equalsIgnoreCase("гитлер")) {
+            PrisonerSays.hitler();
+
+        } else if (saidName.trim().equals("")) {
+            PrisonerSays.space();
+            saidName = scan.nextLine();
+            if (saidName.trim().equals("")) {
                 PrisonerSays.twiceSpace();
             }
         }
